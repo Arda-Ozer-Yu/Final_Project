@@ -1,0 +1,64 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <a href="/">IMDB</a>
+  </div>
+
+
+  <!-- filtreleme dropdown-->
+  <div class="navbar-center">
+    <select [(ngModel)]="selectedCategory" class="category-select">
+      <option value="all">All</option>
+      <option value="movies">Movies</option>
+      <option value="series">TV Series</option>
+      <option value="actors">Actors</option>
+    </select>
+
+
+    <!-- searchbox-->
+    <input
+      type="text"
+      placeholder="Search IMDb"
+      [(ngModel)]="searchText"
+      (input)="filterMedia()"
+      (focus)="showResults = true"
+      (keyup.enter)="goToSearchPage()"
+      class="search-input"
+    />
+
+
+    <!-- sonuç dropdown-->
+    <div *ngIf="showResults && searchText.length > 0"
+      class="search-results"
+      #resultsBox>
+      
+
+      <!-- film ve diziler-->
+      <ng-container *ngIf="filteredMedia.length > 0">
+        <div class="result-group-title">Titles</div>
+        <div *ngFor="let media of filteredMedia"
+          (click)="goToDetails(media.id, media.type)"
+          class="result-item">
+
+          <img [src]="media.image_url" alt="poster" />
+          <span>{{ media.name }} ({{ media.release_year }})</span>
+        </div>
+      </ng-container>
+
+
+      <!-- aktörler-->
+
+      <ng-container *ngIf="filteredActors.length > 0">
+        <div class="result-group-title">People</div>
+        <div class="result-item" *ngFor="let actor of filteredActors">
+          <img [src]="actor.image_url" alt="actor" />
+          <span>{{ actor.name }}</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- login link-->
+  <div class="navbar-right">
+    <a href="#">Login & Register</a>
+  </div>
+</nav>

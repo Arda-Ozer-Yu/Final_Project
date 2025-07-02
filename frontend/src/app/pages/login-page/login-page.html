@@ -1,0 +1,37 @@
+<div class="login-register">
+
+    <!-- login-->
+  <div class="login-box">
+    <h3>Giriş Yap</h3>
+    <input type="email" placeholder="Kullanıcı Email" [(ngModel)]="loginEmail" />
+    <input type="password" placeholder="Şifre" [(ngModel)]="loginPassword" />
+    <button class="google">GOOGLE ile Giriş Yap</button>
+  </div>
+
+  <!-- register-->
+  <div class="register-box">
+    <h3>Üye Ol</h3>
+    <input type="text" placeholder="Ad" [(ngModel)]="firstName" />
+    <input type="text" placeholder="Soyad" [(ngModel)]="lastName" />
+    <input type="email" placeholder="Kullanıcı Email" [(ngModel)]="registerEmail" />
+    <input type="password" placeholder="Şifre" [(ngModel)]="registerPassword" />
+    <input type="password" placeholder="Tekrar Şifre" [(ngModel)]="registerPasswordConfirm" />
+
+    <!-- ülke dropdown-->
+    <select [(ngModel)]="country">
+      <option value="">Ülke seç</option>
+      <option value="Türkiye">Türkiye</option>
+      <option value="Almanya">Almanya</option>
+    </select>
+
+    <!-- şehir dropdown-->
+    <select [(ngModel)]="city">
+      <option value="">Şehir seç</option>
+      <option value="İzmir">İzmir</option>
+      <option value="Ankara">Ankara</option>
+    </select>
+
+    <input type="file" (change)="onFileSelected($event)" />
+    <button (click)="register()">KAYIT OL</button>
+  </div>
+</div>

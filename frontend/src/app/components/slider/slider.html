@@ -1,0 +1,17 @@
+<div class="slider-wrapper">
+  <button class="nav-button left" (click)="scrollLeft()">‹</button>
+
+  <div class="slider-container" #scrollArea>
+    <div class="slider-track">
+      <div class="movie-card" *ngFor="let media of mediaList">
+        <img [src]="media.image_url" alt="{{ media.name }}" />
+        <h4>{{ media.name }}</h4>
+        <p>⭐ {{ media.imdb_rating }}</p>
+
+        <button (click)="goToDetails(media.id, media.type)">Details</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="nav-button right" (click)="scrollRight()">›</button>
+</div>

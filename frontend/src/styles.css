@@ -1,0 +1,15 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #cccccc  !important;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100%;
+  color: #222;
+}
+
+app-root {
+  background-color: #cccccc  !important;
+  display: block;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
